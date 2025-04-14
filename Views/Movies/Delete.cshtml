@@ -1,0 +1,35 @@
+﻿@model practice1.Models.Movie.Movie
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>你確定要刪除這部電影嗎？</h3>
+<h4 style="color:red;">《@Model.Title》</h4>
+
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Title)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Title)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.ReleaseDate)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.ReleaseDate)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Price)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Price)</dd>
+
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Gener)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Gener)</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ID" />
+    <input type="submit"
+           onclick="return confirm('確定要刪除《@Model.Title》嗎？')"
+           value="Delete"
+           class="btn btn-danger" />
+    |
+    <a asp-action="Index">Back to List</a>
+</form>
